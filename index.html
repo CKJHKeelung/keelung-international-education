@@ -650,7 +650,7 @@
       .quick-links { margin-top: -44px; }
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
-      .intro-card, .contact-card { padding: 28px; }
+      .intro-card, .contact-card, .identity-card, .uniform-card { padding: 28px; }
     }
   </style>
 </head>
@@ -835,7 +835,7 @@
   </footer>
 
   <script>
-    window.APPS_SCRIPT_API = "https://script.google.com/macros/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
+    window.APPS_SCRIPT_API = "https://script.google.com/a/macros/go.edu.tw/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
 
     const i18n = {
       zh: {
@@ -968,7 +968,7 @@
             <h3>${escapeHtml(item.title || "")}</h3>
             ${meta}
             <p>${escapeHtml(item.description || "")}</p>
-            <a href="detail.html?type=${encodeURIComponent(type)}&id=${encodeURIComponent(item.id || '')}">${i18n[currentLang].linkDefault} →</a>
+            ${item.id ? `<a href="detail.html?type=${encodeURIComponent(type)}&id=${encodeURIComponent(item.id)}">${i18n[currentLang].linkDefault} →</a>` : (item.url ? `<a href="${escapeAttribute(item.url)}" target="_blank" rel="noopener">${label} →</a>` : "")}
           </article>
         `;
       }).join("");
