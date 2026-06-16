@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>聯絡我們｜基隆市國際教育輔導團</title>
+
+  <style>
+    :root {
+      --brand-red: #A94743;
+      --brand-red-dark: #873633;
+      --brand-navy: #202A5B;
+      --brand-gold: #F4B236;
+      --brand-green: #174C3F;
+      --cream: #FFF9EF;
+      --paper: #FFFFFF;
+      --ink: #263042;
+      --muted: #687385;
+      --line: rgba(32,42,91,.14);
+      --shadow: 0 22px 54px rgba(32,42,91,.16);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(244,178,54,.20), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(169,71,67,.16), transparent 26%),
+        radial-gradient(circle at 70% 90%, rgba(32,42,91,.10), transparent 26%),
+        #FBF7EF;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 78px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-red));
+      box-shadow: 0 10px 22px rgba(32,42,91,.18);
+      color: #fff;
+      font-weight: 950;
+      letter-spacing: .5px;
+    }
+
+    .brand-title {
+      font-weight: 950;
+      color: var(--brand-navy);
+      line-height: 1.25;
+      font-size: 18px;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: var(--brand-navy);
+      font-weight: 850;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: var(--cream);
+      color: var(--brand-red-dark);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-top: 20px;
+    }
+
+    .hero-copy {
+      background:
+        radial-gradient(circle at 88% 20%, rgba(244,178,54,.24), transparent 25%),
+        linear-gradient(135deg, rgba(32,42,91,.98), rgba(169,71,67,.92));
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(30px, 4vw, 54px);
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      color: #FFE7A8;
+      font-weight: 950;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1.08;
+      letter-spacing: -1px;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 780px;
+      color: rgba(255,255,255,.88);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 950;
+      border: 0;
+      cursor: pointer;
+      background: var(--brand-gold);
+      color: var(--brand-navy);
+      box-shadow: 0 10px 18px rgba(0,0,0,.14);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.28);
+      box-shadow: none;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(32,42,91,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      display: grid;
+      align-content: center;
+      gap: 18px;
+    }
+
+    .contact-card h2 {
+      margin: 0;
+      color: var(--brand-navy);
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: var(--cream);
+      border: 1px solid rgba(32,42,91,.08);
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: var(--brand-red);
+      font-size: 22px;
+      box-shadow: 0 10px 18px rgba(32,42,91,.08);
+    }
+
+    .info-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .info-value {
+      color: var(--brand-navy);
+      font-weight: 950;
+      margin-top: 2px;
+      overflow-wrap: anywhere;
+    }
+
+    .section {
+      margin-top: 30px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(32,42,91,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 42px);
+    }
+
+    .section h2 {
+      color: var(--brand-navy);
+      font-size: 34px;
+      line-height: 1.18;
+      margin: 0 0 12px;
+    }
+
+    .section p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .mini-card {
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(32,42,91,.08);
+      padding: 22px;
+      min-height: 170px;
+    }
+
+    .mini-card .emoji {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 8px;
+      color: var(--brand-navy);
+      font-size: 21px;
+    }
+
+    .mini-card p {
+      color: #596579;
+      font-size: 15px;
+    }
+
+    .form-box {
+      margin-top: 24px;
+      border-radius: 24px;
+      background: var(--cream);
+      border: 1px solid rgba(32,42,91,.08);
+      padding: 22px;
+    }
+
+    .form-box h3 {
+      margin: 0 0 10px;
+      color: var(--brand-red-dark);
+      font-size: 23px;
+    }
+
+    .form-box p {
+      margin: 0 0 16px;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 34px;
+      background: rgba(255,255,255,.62);
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      main,
+      .header-inner,
+      .footer-inner {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .hero-copy,
+      .contact-card,
+      .section {
+        border-radius: 22px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">IE</div>
+        <div>
+          <div class="brand-title">基隆市國際教育輔導團</div>
+          <div class="brand-subtitle">國際教育課程・交流・資源平台</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="主選單">
+        <a href="index.html">首頁</a>
+        <a href="index.html#workshops">最新研習</a>
+        <a href="index.html#curriculum">課程發展</a>
+        <a href="index.html#exchange">國際交流</a>
+        <a href="index.html#photos">活動照片</a>
+        <a href="index.html#resources">教學資源</a>
+        <a class="active" href="contact.html">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="kicker">Contact Us</span>
+        <h1>聯絡我們</h1>
+        <p>
+          歡迎各校教師、行政夥伴與國際教育推動團隊聯繫我們。
+          如需研習諮詢、課程共備、國際交流合作、成果投稿或資源分享，可透過本頁資訊與輔導團聯絡。
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="index.html">返回首頁</a>
+          <a class="btn secondary" href="#contactForm">填寫聯絡表單</a>
+        </div>
+      </div>
+
+      <aside class="contact-card">
+        <h2>基隆市國際教育輔導團</h2>
+        <p>讓世界走進教室，讓基隆連結國際。</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <div class="icon">🏫</div>
+            <div>
+              <div class="info-label">服務對象</div>
+              <div class="info-value">基隆市各國中小教師與國際教育推動夥伴</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">🌏</div>
+            <div>
+              <div class="info-label">服務內容</div>
+              <div class="info-value">課程發展、教師增能、國際交流、教學資源分享</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">✉️</div>
+            <div>
+              <div class="info-label">聯絡方式</div>
+              <div class="info-value">請使用下方表單或由網站管理者更新聯絡資訊</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>我們可以協助什麼？</h2>
+      <p>若您正在推動國際教育、雙語課程、SDGs 議題融入或國際交流活動，歡迎與我們聯繫。</p>
+
+      <div class="grid">
+        <article class="mini-card">
+          <div class="emoji">📘</div>
+          <h3>課程與教學諮詢</h3>
+          <p>協助教師發展國際教育課程、SDGs 議題融入教案與跨領域學習任務。</p>
+        </article>
+
+        <article class="mini-card">
+          <div class="emoji">🤝</div>
+          <h3>國際交流合作</h3>
+          <p>提供學校辦理國際交流、線上交流、姊妹校互動與成果分享之建議。</p>
+        </article>
+
+        <article class="mini-card">
+          <div class="emoji">🧑‍🏫</div>
+          <h3>教師增能研習</h3>
+          <p>規劃國際教育課程發展、實作工作坊、教學資源推廣與觀摩分享。</p>
+        </article>
+      </div>
+
+      <div id="contactForm" class="form-box">
+        <h3>聯絡表單</h3>
+        <p>
+          若您已建立 Google 表單，可將表單公開連結貼在下方按鈕位置。
+          目前此頁先保留為聯絡入口，之後可改成直接連到您的 Google 表單。
+        </p>
+
+        <div class="form-actions">
+          <a id="contactFormLink" class="btn" href="#" target="_blank" rel="noopener">開啟聯絡表單</a>
+          <a class="btn secondary" href="index.html">返回網站首頁</a>
+        </div>
+
+        <p class="small" style="margin-top:14px;">
+          管理者提醒：若要讓「開啟聯絡表單」直接連到 Google 表單，請在本檔案搜尋
+          <strong>CONTACT_FORM_URL</strong>，改成您的表單網址。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 基隆市國際教育輔導團</div>
+      <div>International Education Advisory Group, Keelung City</div>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      請將 CONTACT_FORM_URL 改成您的 Google 表單公開連結。
+      範例：
+      const CONTACT_FORM_URL = "https://forms.gle/xxxxxxxx";
+    */
+    const CONTACT_FORM_URL = "";
+
+    const formLink = document.getElementById("contactFormLink");
+
+    if (CONTACT_FORM_URL) {
+      formLink.href = CONTACT_FORM_URL;
+    } else {
+      formLink.href = "index.html";
+      formLink.textContent = "尚未設定表單，返回首頁";
+    }
+  </script>
+</body>
+</html>
