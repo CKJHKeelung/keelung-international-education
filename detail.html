@@ -235,7 +235,7 @@
       注意：
       只貼到 /exec 即可，不要加 ?action=siteData
     */
-    window.APPS_SCRIPT_API = "https://script.google.com/macros/s/請改成您的代碼/exec";
+    window.APPS_SCRIPT_API = "https://script.google.com/macros/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
 
     function getParams() {
       const params = new URLSearchParams(window.location.search);
@@ -353,17 +353,16 @@
       }
 
       if (
-        !api ||
-        api.includes("請改成") ||
-        api.includes("PASTE_YOUR") ||
-        !api.includes("script.google.com/macros/s/")
-      ) {
-        renderDetail({
-          ok: false,
-          message: "尚未設定 Apps Script API 網址，請檢查 detail.html 的 window.APPS_SCRIPT_API。"
-        });
-        return;
-      }
+  !api ||
+  api.includes("請改成") ||
+  api.includes("PASTE_YOUR")
+) {
+  renderDetail({
+    ok: false,
+    message: "尚未設定 Apps Script API 網址，請檢查 detail.html 的 window.APPS_SCRIPT_API。"
+  });
+  return;
+}
 
       const script = document.createElement("script");
       script.src = `${api}?action=itemDetail&type=${encodeURIComponent(params.type)}&id=${encodeURIComponent(params.id)}&callback=renderDetail`;
