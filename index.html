@@ -956,7 +956,7 @@
         return;
       }
       element.innerHTML = safeItems.map(function(item) {
-        const label = getLinkLabel(item.url);
+        const detailUrl = getDetailUrl(type, item);
         const meta = type === "workshops" ? `
           <div class="item-meta">
             ${item.date ? `<span>📅 ${i18n[currentLang].dateLabel}：${escapeHtml(item.date)}</span>` : ""}
@@ -968,10 +968,30 @@
             <h3>${escapeHtml(item.title || "")}</h3>
             ${meta}
             <p>${escapeHtml(item.description || "")}</p>
-            ${item.id ? `<a href="detail.html?type=${encodeURIComponent(type)}&id=${encodeURIComponent(item.id)}">${i18n[currentLang].linkDefault} →</a>` : (item.url ? `<a href="${escapeAttribute(item.url)}" target="_blank" rel="noopener">${label} →</a>` : "")}
+            <a href="${escapeAttribute(detailUrl)}" target="_self" rel="noopener">${i18n[currentLang].linkDefault} →</a>
           </article>
         `;
       }).join("");
+    }
+
+    function getDetailUrl(type, item) {
+      const id = item && item.id ? String(item.id).trim() : "";
+
+      if (!id) {
+        return item && item.url ? item.url : "#";
+      }
+
+      const version = item.updatedAt || item.createdAt || "";
+      const params = new URLSearchParams({
+        type: type,
+        id: id
+      });
+
+      if (version) {
+        params.set("v", String(version));
+      }
+
+      return `detail.html?${params.toString()}`;
     }
 
     function getLinkLabel(url) {
@@ -1023,7 +1043,7 @@
       title.textContent = latestAlbum.title || i18n[currentLang].photosTitle;
       desc.textContent = latestAlbum.description || i18n[currentLang].photosText;
       link.href = latestAlbum.id
-        ? `detail.html?type=albums&id=${encodeURIComponent(latestAlbum.id)}`
+        ? getDetailUrl("albums", latestAlbum)
         : (latestAlbum.url || "#photos");
       link.textContent = i18n[currentLang].linkDefault + " →";
     }
