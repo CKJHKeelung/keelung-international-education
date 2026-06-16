@@ -835,254 +835,277 @@
   </footer>
 
   <script>
-    window.APPS_SCRIPT_API = "https://script.google.com/a/macros/go.edu.tw/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
+  window.APPS_SCRIPT_API = "https://script.google.com/macros/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
 
-    const i18n = {
-      zh: {
-        brandTitle:"基隆市國際教育輔導團", brandSub:"國際教育課程・交流・資源平台",
-        navWorkshops:"最新研習", navCurriculum:"課程發展", navExchange:"國際交流", navPhotos:"活動照片", navResources:"教學資源", navContact:"聯絡我們",
-        eyebrow:"連結世界・深耕課程・成就全球公民", heroTitle:"基隆市國際教育輔導團", heroSub:"從基隆出發，讓世界走進教室",
-        heroLead:"推動國際教育課程發展、教師專業增能與國際交流互動，讓學生從在地出發，培養跨文化溝通力與全球公民素養。",
-        heroBtn1:"查看最新研習活動", heroBtn2:"查看國際交流成果",
-        quickWorkshopTitle:"最新研習活動", quickWorkshopText:"教師增能、工作坊、公開授課與國際教育研習資訊。",
-        quickCurriculumTitle:"課程發展與教學", quickCurriculumText:"國際教育課程、SDGs、雙語教學與跨領域共備。",
-        quickExchangeTitle:"國際交流", quickExchangeText:"線上交流、實體接待、海外參訪與學生文化分享。",
-        quickPhotosTitle:"研習活動照片", quickPhotosText:"教師研習、工作坊、公開授課與成果發表照片。",
-        quickResourcesTitle:"教學資源", quickResourcesText:"教案、簡報、學習單、雙語詞彙與行政表件。",
-        quickContactTitle:"聯絡我們", quickContactText:"活動詢問、需求回饋、資源申請與合作聯繫。",
-        aboutKicker:"關於我們", aboutTitle:"以課程為核心，讓世界走進教室", aboutText:"本網站彙整基隆市國際教育推動成果，包含最新研習、課程設計、國際交流、研習活動、照片紀錄與教學資源，協助教師快速取得可運用的教材與行政資料。",
-        statWorkshops:"研習活動", statCourses:"課程資料", statExchanges:"交流紀錄", statAlbums:"活動相簿",
-        workshopKicker:"Workshops", workshopTitle:"最新研習活動", workshopText:"提供國際教育教師增能、工作坊、公開授課與研習報名資訊。",
-        curriculumKicker:"Curriculum", curriculumTitle:"課程發展與教學", curriculumText:"資料由 Apps Script 後台與 Google Sheets 自動讀取。",
-        exchangeKicker:"Exchange", exchangeTitle:"國際交流", exchangeText:"呈現海外學校交流、線上互動、實體接待與交流成果。",
-        photosKicker:"Photos", photosTitle:"研習活動照片", photosText:"可連結 Google Drive、Google 相簿或 Facebook 相簿。",
-        resourcesKicker:"Resources", resourcesTitle:"教學資源", resourcesText:"教案、簡報、學習單、雙語詞彙、評量工具與行政表件。",
-        contactKicker:"Contact", contactTitle:"聯絡我們", contactText:"如有課程推動、研習活動、教學資源或合作交流需求，歡迎填寫表單與基隆市國際教育輔導團聯繫。",
-        contactBtn:"填寫聯絡表單", footerText:"基隆市國際教育輔導團｜國際教育課程・交流・資源平台",
-        emptyText:"目前尚無資料，管理者可至 Apps Script 後台新增內容。", dateLabel:"日期", locationLabel:"地點", speakerLabel:"講師",
-        linkFacebook:"查看 FB 相簿", linkGooglePhotos:"查看 Google 相簿", linkDrive:"查看雲端資料", linkYoutube:"觀看影片", linkSlides:"查看成果簡報", linkForm:"填寫表單", latestAlbumKicker:"最新更新相簿", linkDefault:"查看內容"
-      },
-      en: {
-        brandTitle:"Keelung International Education Advisory Group", brandSub:"Curriculum・Exchange・Resources",
-        navWorkshops:"Workshops", navCurriculum:"Curriculum", navExchange:"Exchange", navPhotos:"Photos", navResources:"Resources", navContact:"Contact",
-        eyebrow:"Connecting Classrooms, Inspiring Global Citizens", heroTitle:"Keelung International Education Advisory Group", heroSub:"Bringing the World into Classrooms from Keelung",
-        heroLead:"We promote international education curriculum development, teacher professional growth, and global exchange, helping students build intercultural communication skills and global citizenship.",
-        heroBtn1:"Latest Workshops", heroBtn2:"International Exchange",
-        quickWorkshopTitle:"Latest Workshops", quickWorkshopText:"Professional development, workshops, open classes, and international education seminars.",
-        quickCurriculumTitle:"Curriculum & Teaching", quickCurriculumText:"International education curriculum, SDGs, bilingual teaching, and interdisciplinary collaboration.",
-        quickExchangeTitle:"International Exchange", quickExchangeText:"Online exchanges, school visits, overseas learning, and student cultural sharing.",
-        quickPhotosTitle:"Workshop Photos", quickPhotosText:"Photos from teacher workshops, open classes, seminars, and showcases.",
-        quickResourcesTitle:"Teaching Resources", quickResourcesText:"Lesson plans, slides, worksheets, bilingual vocabulary, and administrative templates.",
-        quickContactTitle:"Contact Us", quickContactText:"Inquiries, feedback, resource requests, and collaboration opportunities.",
-        aboutKicker:"About", aboutTitle:"Bringing the World into Classrooms through Curriculum", aboutText:"This website presents Keelung City's international education achievements, including workshops, curriculum design, international exchange, activity records, photos, and teaching resources.",
-        statWorkshops:"Workshops", statCourses:"Curriculum", statExchanges:"Exchange Records", statAlbums:"Activity Albums",
-        workshopKicker:"Workshops", workshopTitle:"Latest Workshops", workshopText:"Professional development, workshops, open classes, and registration information for international education.",
-        curriculumKicker:"Curriculum", curriculumTitle:"Curriculum Development & Teaching", curriculumText:"Data is automatically loaded from the Apps Script admin panel and Google Sheets.",
-        exchangeKicker:"Exchange", exchangeTitle:"International Exchange", exchangeText:"Showcasing overseas school partnerships, online interaction, school visits, and exchange outcomes.",
-        photosKicker:"Photos", photosTitle:"Workshop & Activity Photos", photosText:"Links can connect to Google Drive, Google Photos, or Facebook albums.",
-        resourcesKicker:"Resources", resourcesTitle:"Teaching Resources", resourcesText:"Lesson plans, slides, worksheets, bilingual vocabulary, assessment tools, and administrative templates.",
-        contactKicker:"Contact", contactTitle:"Contact Us", contactText:"For curriculum support, workshops, teaching resources, or collaboration opportunities, please contact us through the form below.",
-        contactBtn:"Contact Us", footerText:"Keelung International Education Advisory Group｜Curriculum・Exchange・Resources",
-        emptyText:"No data yet. Administrators can add content through the Apps Script admin panel.", dateLabel:"Date", locationLabel:"Location", speakerLabel:"Speaker",
-        linkFacebook:"View Facebook Album", linkGooglePhotos:"View Google Photos", linkDrive:"View Drive Files", linkYoutube:"Watch Video", linkSlides:"View Slides", linkForm:"Fill in Form", latestAlbumKicker:"Latest Album", linkDefault:"View More"
-      },
-      ja: {
-        brandTitle:"基隆市国際教育アドバイザリーグループ", brandSub:"国際教育カリキュラム・交流・リソース",
-        navWorkshops:"最新研修", navCurriculum:"カリキュラム", navExchange:"国際交流", navPhotos:"写真", navResources:"教材", navContact:"お問い合わせ",
-        eyebrow:"世界とつながり、カリキュラムを深め、グローバル市民を育てる", heroTitle:"基隆市国際教育アドバイザリーグループ", heroSub:"基隆から世界を教室へ",
-        heroLead:"国際教育のカリキュラム開発、教員の専門性向上、国際交流を推進し、生徒の異文化コミュニケーション能力とグローバル市民性を育成します。",
-        heroBtn1:"最新研修を見る", heroBtn2:"国際交流を見る",
-        quickWorkshopTitle:"最新研修活動", quickWorkshopText:"教員研修、ワークショップ、公開授業、国際教育研修情報。",
-        quickCurriculumTitle:"カリキュラム開発と授業", quickCurriculumText:"国際教育、SDGs、バイリンガル教育、教科横断の共同準備。",
-        quickExchangeTitle:"国際交流", quickExchangeText:"オンライン交流、学校訪問、海外学習、生徒の文化交流。",
-        quickPhotosTitle:"研修活動写真", quickPhotosText:"教員研修、ワークショップ、公開授業、成果発表の写真。",
-        quickResourcesTitle:"教材リソース", quickResourcesText:"指導案、スライド、ワークシート、バイリンガル語彙、行政書式。",
-        quickContactTitle:"お問い合わせ", quickContactText:"活動のお問い合わせ、意見、資料申請、協力連絡。",
-        aboutKicker:"概要", aboutTitle:"カリキュラムを中心に、世界を教室へ", aboutText:"本サイトは、基隆市の国際教育推進成果をまとめ、最新研修、カリキュラム設計、国際交流、活動記録、写真、教材リソースを提供します。",
-        statWorkshops:"研修活動", statCourses:"カリキュラム", statExchanges:"交流記録", statAlbums:"活動アルバム",
-        workshopKicker:"Workshops", workshopTitle:"最新研修活動", workshopText:"国際教育に関する教員研修、ワークショップ、公開授業、申込情報を掲載します。",
-        curriculumKicker:"Curriculum", curriculumTitle:"カリキュラム開発と授業", curriculumText:"Apps Script 管理画面と Google Sheets から自動的に読み込まれます。",
-        exchangeKicker:"Exchange", exchangeTitle:"国際交流", exchangeText:"海外校との交流、オンライン交流、学校訪問、交流成果を紹介します。",
-        photosKicker:"Photos", photosTitle:"研修・活動写真", photosText:"Google Drive、Google フォト、Facebook アルバムにリンクできます。",
-        resourcesKicker:"Resources", resourcesTitle:"教材リソース", resourcesText:"指導案、スライド、ワークシート、バイリンガル語彙、評価ツール、行政書式。",
-        contactKicker:"Contact", contactTitle:"お問い合わせ", contactText:"カリキュラム支援、研修、教材、国際交流の協力については、下記フォームよりご連絡ください。",
-        contactBtn:"お問い合わせフォーム", footerText:"基隆市国際教育アドバイザリーグループ｜カリキュラム・交流・リソース",
-        emptyText:"現在、資料はありません。管理者は Apps Script の管理画面から追加できます。", dateLabel:"日付", locationLabel:"場所", speakerLabel:"講師",
-        linkFacebook:"Facebook アルバムを見る", linkGooglePhotos:"Google フォトを見る", linkDrive:"Drive 資料を見る", linkYoutube:"動画を見る", linkSlides:"スライドを見る", linkForm:"フォームに記入", latestAlbumKicker:"最新アルバム", linkDefault:"詳細を見る"
+  const i18n = {
+    zh: {
+      brandTitle:"基隆市國際教育輔導團", brandSub:"國際教育課程・交流・資源平台",
+      navWorkshops:"最新研習", navCurriculum:"課程發展", navExchange:"國際交流", navPhotos:"活動照片", navResources:"教學資源", navContact:"聯絡我們",
+      eyebrow:"連結世界・深耕課程・成就全球公民", heroTitle:"基隆市國際教育輔導團", heroSub:"從基隆出發，讓世界走進教室",
+      heroLead:"推動國際教育課程發展、教師專業增能與國際交流互動，讓學生從在地出發，培養跨文化溝通力與全球公民素養。",
+      heroBtn1:"查看最新研習活動", heroBtn2:"查看國際交流成果",
+      quickWorkshopTitle:"最新研習活動", quickWorkshopText:"教師增能、工作坊、公開授課與國際教育研習資訊。",
+      quickCurriculumTitle:"課程發展與教學", quickCurriculumText:"國際教育課程、SDGs、雙語教學與跨領域共備。",
+      quickExchangeTitle:"國際交流", quickExchangeText:"線上交流、實體接待、海外參訪與學生文化分享。",
+      quickPhotosTitle:"研習活動照片", quickPhotosText:"教師研習、工作坊、公開授課與成果發表照片。",
+      quickResourcesTitle:"教學資源", quickResourcesText:"教案、簡報、學習單、雙語詞彙與行政表件。",
+      quickContactTitle:"聯絡我們", quickContactText:"活動詢問、需求回饋、資源申請與合作聯繫。",
+      aboutKicker:"關於我們", aboutTitle:"以課程為核心，讓世界走進教室", aboutText:"本網站彙整基隆市國際教育推動成果，包含最新研習、課程設計、國際交流、研習活動、照片紀錄與教學資源，協助教師快速取得可運用的教材與行政資料。",
+      statWorkshops:"研習活動", statCourses:"課程資料", statExchanges:"交流紀錄", statAlbums:"活動相簿",
+      workshopKicker:"Workshops", workshopTitle:"最新研習活動", workshopText:"提供國際教育教師增能、工作坊、公開授課與研習報名資訊。",
+      curriculumKicker:"Curriculum", curriculumTitle:"課程發展與教學", curriculumText:"資料由 Apps Script 後台與 Google Sheets 自動讀取。",
+      exchangeKicker:"Exchange", exchangeTitle:"國際交流", exchangeText:"呈現海外學校交流、線上互動、實體接待與交流成果。",
+      photosKicker:"Photos", photosTitle:"研習活動照片", photosText:"可連結 Google Drive、Google 相簿或 Facebook 相簿。",
+      resourcesKicker:"Resources", resourcesTitle:"教學資源", resourcesText:"教案、簡報、學習單、雙語詞彙、評量工具與行政表件。",
+      contactKicker:"Contact", contactTitle:"聯絡我們", contactText:"如有課程推動、研習活動、教學資源或合作交流需求，歡迎填寫表單與基隆市國際教育輔導團聯繫。",
+      contactBtn:"填寫聯絡表單", footerText:"基隆市國際教育輔導團｜國際教育課程・交流・資源平台",
+      emptyText:"目前尚無資料，管理者可至 Apps Script 後台新增內容。", dateLabel:"日期", locationLabel:"地點", speakerLabel:"講師",
+      linkFacebook:"查看 FB 相簿", linkGooglePhotos:"查看 Google 相簿", linkDrive:"查看雲端資料", linkYoutube:"觀看影片", linkSlides:"查看成果簡報", linkForm:"填寫表單", latestAlbumKicker:"最新更新相簿", linkDefault:"查看內容"
+    },
+    en: {
+      brandTitle:"Keelung International Education Advisory Group", brandSub:"Curriculum・Exchange・Resources",
+      navWorkshops:"Workshops", navCurriculum:"Curriculum", navExchange:"Exchange", navPhotos:"Photos", navResources:"Resources", navContact:"Contact",
+      eyebrow:"Connecting Classrooms, Inspiring Global Citizens", heroTitle:"Keelung International Education Advisory Group", heroSub:"Bringing the World into Classrooms from Keelung",
+      heroLead:"We promote international education curriculum development, teacher professional growth, and global exchange, helping students build intercultural communication skills and global citizenship.",
+      heroBtn1:"Latest Workshops", heroBtn2:"International Exchange",
+      quickWorkshopTitle:"Latest Workshops", quickWorkshopText:"Professional development, workshops, open classes, and international education seminars.",
+      quickCurriculumTitle:"Curriculum & Teaching", quickCurriculumText:"International education curriculum, SDGs, bilingual teaching, and interdisciplinary collaboration.",
+      quickExchangeTitle:"International Exchange", quickExchangeText:"Online exchanges, school visits, overseas learning, and student cultural sharing.",
+      quickPhotosTitle:"Workshop Photos", quickPhotosText:"Photos from teacher workshops, open classes, seminars, and showcases.",
+      quickResourcesTitle:"Teaching Resources", quickResourcesText:"Lesson plans, slides, worksheets, bilingual vocabulary, and administrative templates.",
+      quickContactTitle:"Contact Us", quickContactText:"Inquiries, feedback, resource requests, and collaboration opportunities.",
+      aboutKicker:"About", aboutTitle:"Bringing the World into Classrooms through Curriculum", aboutText:"This website presents Keelung City's international education achievements, including workshops, curriculum design, international exchange, activity records, photos, and teaching resources.",
+      statWorkshops:"Workshops", statCourses:"Curriculum", statExchanges:"Exchange Records", statAlbums:"Activity Albums",
+      workshopKicker:"Workshops", workshopTitle:"Latest Workshops", workshopText:"Professional development, workshops, open classes, and registration information for international education.",
+      curriculumKicker:"Curriculum", curriculumTitle:"Curriculum Development & Teaching", curriculumText:"Data is automatically loaded from the Apps Script admin panel and Google Sheets.",
+      exchangeKicker:"Exchange", exchangeTitle:"International Exchange", exchangeText:"Showcasing overseas school partnerships, online interaction, school visits, and exchange outcomes.",
+      photosKicker:"Photos", photosTitle:"Workshop & Activity Photos", photosText:"Links can connect to Google Drive, Google Photos, or Facebook albums.",
+      resourcesKicker:"Resources", resourcesTitle:"Teaching Resources", resourcesText:"Lesson plans, slides, worksheets, bilingual vocabulary, assessment tools, and administrative templates.",
+      contactKicker:"Contact", contactTitle:"Contact Us", contactText:"For curriculum support, workshops, teaching resources, or collaboration opportunities, please contact us through the form below.",
+      contactBtn:"Contact Us", footerText:"Keelung International Education Advisory Group｜Curriculum・Exchange・Resources",
+      emptyText:"No data yet. Administrators can add content through the Apps Script admin panel.", dateLabel:"Date", locationLabel:"Location", speakerLabel:"Speaker",
+      linkFacebook:"View Facebook Album", linkGooglePhotos:"View Google Photos", linkDrive:"View Drive Files", linkYoutube:"Watch Video", linkSlides:"View Slides", linkForm:"Fill in Form", latestAlbumKicker:"Latest Album", linkDefault:"View More"
+    },
+    ja: {
+      brandTitle:"基隆市国際教育アドバイザリーグループ", brandSub:"国際教育カリキュラム・交流・リソース",
+      navWorkshops:"最新研修", navCurriculum:"カリキュラム", navExchange:"国際交流", navPhotos:"写真", navResources:"教材", navContact:"お問い合わせ",
+      eyebrow:"世界とつながり、カリキュラムを深め、グローバル市民を育てる", heroTitle:"基隆市国際教育アドバイザリーグループ", heroSub:"基隆から世界を教室へ",
+      heroLead:"国際教育のカリキュラム開発、教員の専門性向上、国際交流を推進し、生徒の異文化コミュニケーション能力とグローバル市民性を育成します。",
+      heroBtn1:"最新研修を見る", heroBtn2:"国際交流を見る",
+      quickWorkshopTitle:"最新研修活動", quickWorkshopText:"教員研修、ワークショップ、公開授業、国際教育研修情報。",
+      quickCurriculumTitle:"カリキュラム開発と授業", quickCurriculumText:"国際教育、SDGs、バイリンガル教育、教科横断の共同準備。",
+      quickExchangeTitle:"国際交流", quickExchangeText:"オンライン交流、学校訪問、海外学習、生徒の文化交流。",
+      quickPhotosTitle:"研修活動写真", quickPhotosText:"教員研修、ワークショップ、公開授業、成果発表の写真。",
+      quickResourcesTitle:"教材リソース", quickResourcesText:"指導案、スライド、ワークシート、バイリンガル語彙、行政書式。",
+      quickContactTitle:"お問い合わせ", quickContactText:"活動のお問い合わせ、意見、資料申請、協力連絡。",
+      aboutKicker:"概要", aboutTitle:"カリキュラムを中心に、世界を教室へ", aboutText:"本サイトは、基隆市の国際教育推進成果をまとめ、最新研修、カリキュラム設計、国際交流、活動記録、写真、教材リソースを提供します。",
+      statWorkshops:"研修活動", statCourses:"カリキュラム", statExchanges:"交流記録", statAlbums:"活動アルバム",
+      workshopKicker:"Workshops", workshopTitle:"最新研修活動", workshopText:"国際教育に関する教員研修、ワークショップ、公開授業、申込情報を掲載します。",
+      curriculumKicker:"Curriculum", curriculumTitle:"カリキュラム開発と授業", curriculumText:"Apps Script 管理画面と Google Sheets から自動的に読み込まれます。",
+      exchangeKicker:"Exchange", exchangeTitle:"国際交流", exchangeText:"海外校との交流、オンライン交流、学校訪問、交流成果を紹介します。",
+      photosKicker:"Photos", photosTitle:"研修・活動写真", photosText:"Google Drive、Google フォト、Facebook アルバムにリンクできます。",
+      resourcesKicker:"Resources", resourcesTitle:"教材リソース", resourcesText:"指導案、スライド、ワークシート、バイリンガル語彙、評価ツール、行政書式。",
+      contactKicker:"Contact", contactTitle:"お問い合わせ", contactText:"カリキュラム支援、研修、教材、国際交流の協力については、下記フォームよりご連絡ください。",
+      contactBtn:"お問い合わせフォーム", footerText:"基隆市国際教育アドバイザリーグループ｜カリキュラム・交流・リソース",
+      emptyText:"現在、資料はありません。管理者は Apps Script の管理画面から追加できます。", dateLabel:"日付", locationLabel:"場所", speakerLabel:"講師",
+      linkFacebook:"Facebook アルバムを見る", linkGooglePhotos:"Google フォトを見る", linkDrive:"Drive 資料を見る", linkYoutube:"動画を見る", linkSlides:"スライドを見る", linkForm:"フォームに記入", latestAlbumKicker:"最新アルバム", linkDefault:"詳細を見る"
+    }
+  };
+
+  let currentLang = "zh";
+
+  const emptyData = {
+    workshops: [],
+    courses: [],
+    exchanges: [],
+    albums: [],
+    resources: [],
+    settings: {
+      contactFormUrl: "#"
+    }
+  };
+
+  let latestData = emptyData;
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(function(element) {
+      const key = element.getAttribute("data-i18n");
+      if (i18n[lang] && i18n[lang][key]) {
+        element.textContent = i18n[lang][key];
       }
-    };
-
-    let currentLang = "zh";
-
-    const demo = {
-      workshops: [
-        { id:"demo-workshop-1", title:"國際教育課程與實作教師增能研習", description:"從心設計，動手串聯：國際教育的創客設計思考。", date:"115年06月16日（二）13:30-17:30", location:"成功國中國際教育教室", speaker:"基隆市長興國小 羅雅真主任", url:"#"}
-      ],
-      courses: [
-        { id:"demo-course-1", title:"淨零綠生活國際交流課程", description:"結合 SDG 13 與國際交流，引導學生思考氣候行動。", url:"#"}
-      ],
-      exchanges: [
-        { id:"demo-exchange-1", title:"成功國中與大野中學校線上交流", description:"雙方學生自我介紹，討論夢想與未來。", url:"#"}
-      ],
-      albums: [
-        { id:"demo-album-1", title:"國際教育教師增能工作坊 FB 相簿", description:"研習照片與成果紀錄，可連結 Facebook 相簿或 Google 相簿。", url:"https://www.facebook.com/"}
-      ],
-      resources: [
-        { id:"demo-resource-1", title:"國際教育課程設計模板", description:"教案模板、簡報與學習單範本。", url:"#"}
-      ],
-      settings: { contactFormUrl:"#"}
-    };
-
-    let latestData = demo;
-
-    function applyLanguage(lang) {
-      currentLang = lang;
-      document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang;
-      document.querySelectorAll("[data-i18n]").forEach(function(element) {
-        const key = element.getAttribute("data-i18n");
-        if (i18n[lang] && i18n[lang][key]) element.textContent = i18n[lang][key];
-      });
-      document.querySelectorAll(".language-switcher button").forEach(function(button) {
-        button.classList.toggle("active", button.dataset.lang === lang);
-      });
-      renderSite(latestData);
-    }
-
-    function renderCards(elementId, items, type) {
-      const element = document.getElementById(elementId);
-      const safeItems = Array.isArray(items) ? items.filter(Boolean) : [];
-      if (!safeItems.length) {
-        element.innerHTML = `<div class="empty">${i18n[currentLang].emptyText}</div>`;
-        return;
-      }
-      element.innerHTML = safeItems.map(function(item) {
-        const detailUrl = getDetailUrl(type, item);
-        const meta = type === "workshops" ? `
-          <div class="item-meta">
-            ${item.date ? `<span>📅 ${i18n[currentLang].dateLabel}：${escapeHtml(item.date)}</span>` : ""}
-            ${item.location ? `<span>📍 ${i18n[currentLang].locationLabel}：${escapeHtml(item.location)}</span>` : ""}
-            ${item.speaker ? `<span>👤 ${i18n[currentLang].speakerLabel}：${escapeHtml(item.speaker)}</span>` : ""}
-          </div>` : "";
-        return `
-          <article class="item">
-            <h3>${escapeHtml(item.title || "")}</h3>
-            ${meta}
-            <p>${escapeHtml(item.description || "")}</p>
-            <a href="${escapeAttribute(detailUrl)}" target="_self" rel="noopener">${i18n[currentLang].linkDefault} →</a>
-          </article>
-        `;
-      }).join("");
-    }
-
-    function getDetailUrl(type, item) {
-      const id = item && item.id ? String(item.id).trim() : "";
-
-      if (!id) {
-        return item && item.url ? item.url : "#";
-      }
-
-      const version = item.updatedAt || item.createdAt || "";
-      const params = new URLSearchParams({
-        type: type,
-        id: id
-      });
-
-      if (version) {
-        params.set("v", String(version));
-      }
-
-      return `detail.html?${params.toString()}`;
-    }
-
-    function getLinkLabel(url) {
-      const text = String(url || "").toLowerCase();
-      const t = i18n[currentLang];
-      if (text.includes("facebook.com") || text.includes("fb.com")) return t.linkFacebook;
-      if (text.includes("photos.google.com")) return t.linkGooglePhotos;
-      if (text.includes("drive.google.com")) return t.linkDrive;
-      if (text.includes("youtube.com") || text.includes("youtu.be")) return t.linkYoutube;
-      if (text.includes("docs.google.com/presentation")) return t.linkSlides;
-      if (text.includes("docs.google.com/forms")) return t.linkForm;
-      return t.linkDefault;
-    }
-
-    function escapeHtml(str) {
-      return String(str).replace(/[&<>"']/g, function(match) {
-        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[match];
-      });
-    }
-
-    function escapeAttribute(str) {
-      return escapeHtml(str).replace(/`/g, "&#96;");
-    }
-
-    function updateCount(id, value) {
-      const element = document.getElementById(id);
-      if (element) element.textContent = Array.isArray(value) ? value.length : 0;
-    }
-
-
-    function updateHeroAlbum(albums) {
-      const safeAlbums = Array.isArray(albums) ? albums.filter(Boolean) : [];
-      const latestAlbum = safeAlbums.length ? safeAlbums[safeAlbums.length - 1] : null;
-
-      const title = document.getElementById("heroAlbumTitle");
-      const desc = document.getElementById("heroAlbumDescription");
-      const link = document.getElementById("heroAlbumLink");
-
-      if (!title || !desc || !link) return;
-
-      if (!latestAlbum) {
-        title.textContent = i18n[currentLang].photosTitle;
-        desc.textContent = i18n[currentLang].photosText;
-        link.href = "#photos";
-        link.textContent = i18n[currentLang].linkDefault + " →";
-        return;
-      }
-
-      title.textContent = latestAlbum.title || i18n[currentLang].photosTitle;
-      desc.textContent = latestAlbum.description || i18n[currentLang].photosText;
-      link.href = latestAlbum.id
-        ? getDetailUrl("albums", latestAlbum)
-        : (latestAlbum.url || "#photos");
-      link.textContent = i18n[currentLang].linkDefault + " →";
-    }
-
-    function renderSite(data) {
-      const siteData = data || demo;
-      latestData = siteData;
-      renderCards("workshopsList", siteData.workshops, "workshops");
-      renderCards("courses", siteData.courses, "courses");
-      renderCards("exchanges", siteData.exchanges, "exchanges");
-      renderCards("albums", siteData.albums, "albums");
-      renderCards("resourcesList", siteData.resources, "resources");
-      updateHeroAlbum(siteData.albums);
-      updateCount("countWorkshops", siteData.workshops);
-      updateCount("countCourses", siteData.courses);
-      updateCount("countExchanges", siteData.exchanges);
-      updateCount("countAlbums", siteData.albums);
-      const contact = document.getElementById("contactForm");
-      if (contact) contact.href = siteData.settings && siteData.settings.contactFormUrl ? siteData.settings.contactFormUrl : "#";
-    }
-
-    window.renderSite = renderSite;
-
-    document.querySelectorAll(".language-switcher button").forEach(function(button) {
-      button.addEventListener("click", function() { applyLanguage(button.dataset.lang); });
     });
 
-    (function loadData() {
-      const api = window.APPS_SCRIPT_API;
-      applyLanguage("zh");
-      if (!api || api.includes("PASTE_YOUR")) {
-        renderSite(demo);
-        return;
-      }
-      const script = document.createElement("script");
-      script.src = `${api}?action=siteData&callback=renderSite`;
-      script.onerror = function() { renderSite(demo); };
-      document.body.appendChild(script);
-    })();
-  </script>
+    document.querySelectorAll(".language-switcher button").forEach(function(button) {
+      button.classList.toggle("active", button.dataset.lang === lang);
+    });
+
+    renderSite(latestData);
+  }
+
+  function renderCards(elementId, items, type) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    const safeItems = Array.isArray(items) ? items.filter(Boolean) : [];
+
+    if (!safeItems.length) {
+      element.innerHTML = `<div class="empty">${i18n[currentLang].emptyText}</div>`;
+      return;
+    }
+
+    element.innerHTML = safeItems.map(function(item) {
+      const detailUrl = getDetailUrl(type, item);
+
+      const meta = type === "workshops" ? `
+        <div class="item-meta">
+          ${item.date ? `<span>📅 ${i18n[currentLang].dateLabel}：${escapeHtml(item.date)}</span>` : ""}
+          ${item.location ? `<span>📍 ${i18n[currentLang].locationLabel}：${escapeHtml(item.location)}</span>` : ""}
+          ${item.speaker ? `<span>👤 ${i18n[currentLang].speakerLabel}：${escapeHtml(item.speaker)}</span>` : ""}
+        </div>` : "";
+
+      return `
+        <article class="item">
+          <h3>${escapeHtml(item.title || "")}</h3>
+          ${meta}
+          <p>${escapeHtml(item.description || "")}</p>
+          <a href="${escapeAttribute(detailUrl)}" target="_self" rel="noopener">${i18n[currentLang].linkDefault} →</a>
+        </article>
+      `;
+    }).join("");
+  }
+
+  function getDetailUrl(type, item) {
+    const id = item && item.id ? String(item.id).trim() : "";
+
+    if (!id) {
+      return item && item.url ? item.url : "#";
+    }
+
+    const version = item.updatedAt || item.createdAt || "";
+    const params = new URLSearchParams({
+      type: type,
+      id: id
+    });
+
+    if (version) {
+      params.set("v", String(version));
+    }
+
+    return `detail.html?${params.toString()}`;
+  }
+
+  function escapeHtml(str) {
+    return String(str || "").replace(/[&<>"']/g, function(match) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[match];
+    });
+  }
+
+  function escapeAttribute(str) {
+    return escapeHtml(str).replace(/`/g, "&#96;");
+  }
+
+  function updateCount(id, value) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.textContent = Array.isArray(value) ? value.length : 0;
+    }
+  }
+
+  function updateHeroAlbum(albums) {
+    const safeAlbums = Array.isArray(albums) ? albums.filter(Boolean) : [];
+    const latestAlbum = safeAlbums.length ? safeAlbums[safeAlbums.length - 1] : null;
+
+    const title = document.getElementById("heroAlbumTitle");
+    const desc = document.getElementById("heroAlbumDescription");
+    const link = document.getElementById("heroAlbumLink");
+
+    if (!title || !desc || !link) return;
+
+    if (!latestAlbum) {
+      title.textContent = i18n[currentLang].photosTitle;
+      desc.textContent = i18n[currentLang].photosText;
+      link.href = "#photos";
+      link.textContent = i18n[currentLang].linkDefault + " →";
+      return;
+    }
+
+    title.textContent = latestAlbum.title || i18n[currentLang].photosTitle;
+    desc.textContent = latestAlbum.description || i18n[currentLang].photosText;
+    link.href = latestAlbum.id
+      ? getDetailUrl("albums", latestAlbum)
+      : (latestAlbum.url || "#photos");
+    link.textContent = i18n[currentLang].linkDefault + " →";
+  }
+
+  function renderSite(data) {
+    const siteData = data || emptyData;
+
+    latestData = {
+      settings: siteData.settings || {},
+      workshops: Array.isArray(siteData.workshops) ? siteData.workshops : [],
+      courses: Array.isArray(siteData.courses) ? siteData.courses : [],
+      exchanges: Array.isArray(siteData.exchanges) ? siteData.exchanges : [],
+      albums: Array.isArray(siteData.albums) ? siteData.albums : [],
+      resources: Array.isArray(siteData.resources) ? siteData.resources : []
+    };
+
+    renderCards("workshopsList", latestData.workshops, "workshops");
+    renderCards("courses", latestData.courses, "courses");
+    renderCards("exchanges", latestData.exchanges, "exchanges");
+    renderCards("albums", latestData.albums, "albums");
+    renderCards("resourcesList", latestData.resources, "resources");
+
+    updateHeroAlbum(latestData.albums);
+
+    updateCount("countWorkshops", latestData.workshops);
+    updateCount("countCourses", latestData.courses);
+    updateCount("countExchanges", latestData.exchanges);
+    updateCount("countAlbums", latestData.albums);
+
+    const contact = document.getElementById("contactForm");
+    if (contact) {
+      contact.href = latestData.settings && latestData.settings.contactFormUrl
+        ? latestData.settings.contactFormUrl
+        : "#";
+    }
+  }
+
+  window.renderSite = renderSite;
+
+  document.querySelectorAll(".language-switcher button").forEach(function(button) {
+    button.addEventListener("click", function() {
+      applyLanguage(button.dataset.lang);
+    });
+  });
+
+  (function loadData() {
+    const api = window.APPS_SCRIPT_API;
+
+    applyLanguage("zh");
+
+    if (!api || api.includes("PASTE_YOUR")) {
+      renderSite(emptyData);
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = `${api}?action=siteData&callback=renderSite`;
+
+    script.onerror = function() {
+      renderSite(emptyData);
+    };
+
+    document.body.appendChild(script);
+  })();
+</script>
 </body>
 </html>
