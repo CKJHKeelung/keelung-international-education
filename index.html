@@ -650,7 +650,7 @@
       .quick-links { margin-top: -44px; }
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
-      .intro-card, .contact-card { padding: 28px; }
+      .intro-card, .contact-card, .identity-card, .uniform-card { padding: 28px; }
     }
   </style>
 </head>
@@ -672,7 +672,7 @@
         <a href="#exchange" data-i18n="navExchange">國際交流</a>
         <a href="#photos" data-i18n="navPhotos">活動照片</a>
         <a href="#resources" data-i18n="navResources">教學資源</a>
-        <a href="#contact" data-i18n="navContact">聯絡我們</a>
+        <a href="contact.html" data-i18n="navContact">聯絡我們</a>
       </nav>
 
       <div class="language-switcher" aria-label="語言選擇">
@@ -751,7 +751,7 @@
         <p data-i18n="quickResourcesText">教案、簡報、學習單、雙語詞彙與行政表件。</p>
       </a>
 
-      <a class="quick-card" href="#contact">
+      <a class="quick-card" href="contact.html">
         <span class="quick-icon">✉️</span>
         <h2 data-i18n="quickContactTitle">聯絡我們</h2>
         <p data-i18n="quickContactText">活動詢問、需求回饋、資源申請與合作聯繫。</p>
@@ -956,7 +956,7 @@
         return;
       }
       element.innerHTML = safeItems.map(function(item) {
-        const label = getLinkLabel(item.url);
+        const detailUrl = getDetailUrl(type, item);
         const meta = type === "workshops" ? `
           <div class="item-meta">
             ${item.date ? `<span>📅 ${i18n[currentLang].dateLabel}：${escapeHtml(item.date)}</span>` : ""}
@@ -968,10 +968,30 @@
             <h3>${escapeHtml(item.title || "")}</h3>
             ${meta}
             <p>${escapeHtml(item.description || "")}</p>
-            <a href="detail.html?type=${encodeURIComponent(type)}&id=${encodeURIComponent(item.id || '')}">${i18n[currentLang].linkDefault} →</a>
+            <a href="${escapeAttribute(detailUrl)}" target="_self" rel="noopener">${i18n[currentLang].linkDefault} →</a>
           </article>
         `;
       }).join("");
+    }
+
+    function getDetailUrl(type, item) {
+      const id = item && item.id ? String(item.id).trim() : "";
+
+      if (!id) {
+        return item && item.url ? item.url : "#";
+      }
+
+      const version = item.updatedAt || item.createdAt || "";
+      const params = new URLSearchParams({
+        type: type,
+        id: id
+      });
+
+      if (version) {
+        params.set("v", String(version));
+      }
+
+      return `detail.html?${params.toString()}`;
     }
 
     function getLinkLabel(url) {
@@ -1023,7 +1043,7 @@
       title.textContent = latestAlbum.title || i18n[currentLang].photosTitle;
       desc.textContent = latestAlbum.description || i18n[currentLang].photosText;
       link.href = latestAlbum.id
-        ? `detail.html?type=albums&id=${encodeURIComponent(latestAlbum.id)}`
+        ? getDetailUrl("albums", latestAlbum)
         : (latestAlbum.url || "#photos");
       link.textContent = i18n[currentLang].linkDefault + " →";
     }
