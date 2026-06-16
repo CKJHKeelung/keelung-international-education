@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>內容頁｜基隆市國際教育輔導團</title>
+
+  <style>
+    :root {
+      --brand-red: #A94743;
+      --brand-red-dark: #873633;
+      --brand-navy: #202A5B;
+      --brand-gold: #F4B236;
+      --cream: #FFF9EF;
+      --paper: #FFFFFF;
+      --ink: #263042;
+      --muted: #687385;
+      --line: rgba(32,42,91,.14);
+      --shadow: 0 22px 54px rgba(32,42,91,.16);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(244,178,54,.20), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(169,71,67,.16), transparent 26%),
+        #FBF7EF;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      width: min(1060px, calc(100% - 40px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      color: var(--brand-navy);
+      font-weight: 950;
+      font-size: 19px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border-radius: 999px;
+      padding: 9px 16px;
+      background: var(--brand-red);
+      color: white;
+      font-weight: 900;
+    }
+
+    main {
+      width: min(1060px, calc(100% - 40px));
+      margin: 44px auto 80px;
+    }
+
+    .detail-card {
+      background: var(--paper);
+      border: 1px solid rgba(32,42,91,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 40px;
+      color: white;
+      background:
+        radial-gradient(circle at 86% 20%, rgba(244,178,54,.32), transparent 30%),
+        linear-gradient(135deg, var(--brand-navy), var(--brand-red));
+    }
+
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      color: #FFE7A8;
+      font-weight: 950;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.18;
+    }
+
+    .description {
+      margin: 16px 0 0;
+      max-width: 850px;
+      color: rgba(255,255,255,.9);
+      font-size: 18px;
+    }
+
+    .body {
+      padding: 36px 40px 42px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .meta-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--cream);
+      border: 1px solid rgba(32,42,91,.08);
+      color: var(--brand-navy);
+      font-weight: 900;
+    }
+
+    .content {
+      padding-top: 6px;
+      color: #3d4658;
+      font-size: 17px;
+      white-space: pre-wrap;
+    }
+
+    .actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 950;
+      background: var(--brand-gold);
+      color: var(--brand-navy);
+    }
+
+    .btn.secondary {
+      background: var(--brand-red);
+      color: white;
+    }
+
+    .error {
+      padding: 40px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .hero,
+      .body {
+        padding: 28px;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">基隆市國際教育輔導團</a>
+      <a class="back" href="index.html">← 回首頁</a>
+    </div>
+  </header>
+
+  <main>
+    <article id="detail" class="detail-card">
+      <div class="error">資料載入中...</div>
+    </article>
+  </main>
+
+  <script>
+    /*
+      請貼上與 index.html 相同的 Apps Script Web App /exec 網址。
+      範例：
+      window.APPS_SCRIPT_API = "https://script.google.com/macros/s/xxxxxxxxxxxx/exec";
+    */
+    window.APPS_SCRIPT_API = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const demoItems = {
+      "workshops:demo-workshop-1": {
+        ok: true,
+        type: "workshops",
+        item: {
+          title: "國際教育課程與實作教師增能研習",
+          description: "從心設計，動手串聯：國際教育的創客設計思考。",
+          content: "本研習將帶領教師從國際教育課程核心素養出發，結合創客設計思考、草圖設計與數位實作，協助教師發展可落實於課堂中的國際教育課程。\\n\\n課程內容：\\n一、創意發想與草圖設計\\n二、紀念品原型數位實作\\n三、成果測試與分享",
+          date: "115年06月16日（二）13:30-17:30",
+          location: "成功國中國際教育教室",
+          speaker: "基隆市長興國小 羅雅真主任",
+          url: "#"
+        }
+      }
+    };
+
+    function getParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        type: params.get("type") || "",
+        id: params.get("id") || ""
+      };
+    }
+
+    function getTypeLabel(type) {
+      return {
+        workshops: "最新研習活動",
+        courses: "課程發展與教學",
+        exchanges: "國際交流",
+        albums: "研習活動照片",
+        resources: "教學資源"
+      }[type] || "內容頁";
+    }
+
+    function getLinkLabel(url) {
+      const text = String(url || "").toLowerCase();
+
+      if (text.includes("facebook.com") || text.includes("fb.com")) return "查看 FB 相簿";
+      if (text.includes("photos.google.com")) return "查看 Google 相簿";
+      if (text.includes("drive.google.com")) return "查看雲端資料";
+      if (text.includes("youtube.com") || text.includes("youtu.be")) return "觀看影片";
+      if (text.includes("docs.google.com/presentation")) return "查看成果簡報";
+      if (text.includes("docs.google.com/forms")) return "填寫表單";
+
+      return "前往相關連結";
+    }
+
+    function escapeHtml(str) {
+      return String(str || "").replace(/[&<>"']/g, function(match) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        }[match];
+      });
+    }
+
+    function escapeAttribute(str) {
+      return escapeHtml(str).replace(/`/g, "&#96;");
+    }
+
+    function renderDetail(data) {
+      const container = document.getElementById("detail");
+
+      if (!data || !data.ok || !data.item) {
+        container.innerHTML = `
+          <div class="error">
+            <h1>找不到資料</h1>
+            <p>可能是資料不存在、網址錯誤，或尚未完成 Apps Script 部署。</p>
+            <div class="actions">
+              <a class="btn secondary" href="index.html">回首頁</a>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const item = data.item;
+      const type = data.type;
+      const content = item.content || item.description || "目前尚無完整內容。";
+
+      const meta = [
+        item.date ? `<div class="meta-item">📅 日期：${escapeHtml(item.date)}</div>` : "",
+        item.location ? `<div class="meta-item">📍 地點：${escapeHtml(item.location)}</div>` : "",
+        item.speaker ? `<div class="meta-item">👤 講師：${escapeHtml(item.speaker)}</div>` : ""
+      ].join("");
+
+      document.title = `${item.title || "內容頁"}｜基隆市國際教育輔導團`;
+
+      container.innerHTML = `
+        <div class="hero">
+          <span class="kicker">${escapeHtml(getTypeLabel(type))}</span>
+          <h1>${escapeHtml(item.title || "")}</h1>
+          ${item.description ? `<p class="description">${escapeHtml(item.description)}</p>` : ""}
+        </div>
+
+        <div class="body">
+          ${meta ? `<div class="meta">${meta}</div>` : ""}
+
+          <div class="content">${escapeHtml(content)}</div>
+
+          <div class="actions">
+            ${item.url ? `<a class="btn" href="${escapeAttribute(item.url)}" target="_blank" rel="noopener">${getLinkLabel(item.url)}</a>` : ""}
+            <a class="btn secondary" href="index.html">回首頁</a>
+          </div>
+        </div>
+      `;
+    }
+
+    window.renderDetail = renderDetail;
+
+    (function loadDetail() {
+      const params = getParams();
+      const key = `${params.type}:${params.id}`;
+      const api = window.APPS_SCRIPT_API;
+
+      if (!api || api.includes("PASTE_YOUR")) {
+        renderDetail(demoItems[key] || demoItems["workshops:demo-workshop-1"]);
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = `${api}?action=itemDetail&type=${encodeURIComponent(params.type)}&id=${encodeURIComponent(params.id)}&callback=renderDetail`;
+      script.onerror = function() {
+        renderDetail(null);
+      };
+      document.body.appendChild(script);
+    })();
+  </script>
+</body>
+</html>
