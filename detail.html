@@ -178,6 +178,16 @@
       color: var(--muted);
     }
 
+    .error h1 {
+      color: var(--brand-navy);
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .error p {
+      margin: 8px 0;
+    }
+
     @media (max-width: 760px) {
       .topbar-inner {
         align-items: flex-start;
@@ -217,30 +227,19 @@
 
   <script>
     /*
-      請貼上與 index.html 相同的 Apps Script Web App /exec 網址。
-      範例：
-      window.APPS_SCRIPT_API = "https://script.google.com/macros/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
-    */
-    window.APPS_SCRIPT_API = "https://script.google.com/a/macros/go.edu.tw/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
+      請把下面這一行改成您的 Apps Script Web App /exec 網址。
 
-    const demoItems = {
-      "workshops:demo-workshop-1": {
-        ok: true,
-        type: "workshops",
-        item: {
-          title: "國際教育課程與實作教師增能研習",
-          description: "從心設計，動手串聯：國際教育的創客設計思考。",
-          content: "本研習將帶領教師從國際教育課程核心素養出發，結合創客設計思考、草圖設計與數位實作，協助教師發展可落實於課堂中的國際教育課程。\\n\\n課程內容：\\n一、創意發想與草圖設計\\n二、紀念品原型數位實作\\n三、成果測試與分享",
-          date: "115年06月16日（二）13:30-17:30",
-          location: "成功國中國際教育教室",
-          speaker: "基隆市長興國小 羅雅真主任",
-          url: "#"
-        }
-      }
-    };
+      正確格式範例：
+      window.APPS_SCRIPT_API = "https://script.google.com/a/macros/go.edu.tw/s/AKfycbzJKg6pT_KfhFqf8fslZYU3Mf9YC8v-_74TuYJTuKOxyKCIivmsBcjVQk1FJxyVlsWsmw/exec";
+
+      注意：
+      只貼到 /exec 即可，不要加 ?action=siteData
+    */
+    window.APPS_SCRIPT_API = "https://script.google.com/macros/s/請改成您的代碼/exec";
 
     function getParams() {
       const params = new URLSearchParams(window.location.search);
+
       return {
         type: params.get("type") || "",
         id: params.get("id") || ""
@@ -290,10 +289,15 @@
       const container = document.getElementById("detail");
 
       if (!data || !data.ok || !data.item) {
+        const message = data && data.message
+          ? data.message
+          : "可能是資料不存在、網址錯誤，或尚未完成 Apps Script 部署。";
+
         container.innerHTML = `
           <div class="error">
             <h1>找不到資料</h1>
-            <p>可能是資料不存在、網址錯誤，或尚未完成 Apps Script 部署。</p>
+            <p>${escapeHtml(message)}</p>
+            <p>請確認網址中有正確的 type 與 id。</p>
             <div class="actions">
               <a class="btn secondary" href="index.html">回首頁</a>
             </div>
@@ -338,19 +342,39 @@
 
     (function loadDetail() {
       const params = getParams();
-      const key = `${params.type}:${params.id}`;
       const api = window.APPS_SCRIPT_API;
 
-      if (!api || api.includes("PASTE_YOUR")) {
-        renderDetail(demoItems[key] || demoItems["workshops:demo-workshop-1"]);
+      if (!params.type || !params.id) {
+        renderDetail({
+          ok: false,
+          message: "缺少活動類型或資料 ID，請從首頁的「查看內容」按鈕進入。"
+        });
+        return;
+      }
+
+      if (
+        !api ||
+        api.includes("請改成") ||
+        api.includes("PASTE_YOUR") ||
+        !api.includes("script.google.com/macros/s/")
+      ) {
+        renderDetail({
+          ok: false,
+          message: "尚未設定 Apps Script API 網址，請檢查 detail.html 的 window.APPS_SCRIPT_API。"
+        });
         return;
       }
 
       const script = document.createElement("script");
       script.src = `${api}?action=itemDetail&type=${encodeURIComponent(params.type)}&id=${encodeURIComponent(params.id)}&callback=renderDetail`;
+
       script.onerror = function() {
-        renderDetail(null);
+        renderDetail({
+          ok: false,
+          message: "無法連線到 Apps Script API，請確認 Web App 已重新部署，且權限設定為任何知道連結的人可存取。"
+        });
       };
+
       document.body.appendChild(script);
     })();
   </script>
